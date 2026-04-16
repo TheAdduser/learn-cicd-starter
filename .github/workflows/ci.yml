@@ -23,4 +23,6 @@ jobs:
 
   style:
     name: Style
-    run: test -z $(go fmt ./...)
+    steps:
+      - name: Check code style
+        run: test -z $(go fmt ./...)
