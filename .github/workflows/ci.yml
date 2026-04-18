@@ -27,7 +27,8 @@ jobs:
     steps:
       - name: Check code style
         run: test -z $(go fmt ./...)
+
+      - name: Install staticcheck
+        run: go install honnef.co/go/tools/cmd/staticcheck@latest
       - name: Check code linting
-        uses: dominikh/staticcheck-action@v1
-        with:
-          version: "latest"
+        run: staticcheck ./...
